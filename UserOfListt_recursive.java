@@ -1,11 +1,12 @@
 /**
- Test list features.
-
-renamed to UserOf
+ Test list (recursive) features.
+renamed UserOfListt because i kept gettign 
+error: class found on application class path: UserOfList
+and got really annoyed. will fix later.
  */
-public class UserOfListt {
+public class UserOfListt_recursive  {
     public static void main( String[] args ) {
-        List_inChainOfNodes list = new List_inChainOfNodes();
+        List_inChainOfNodes_recursive  list = new List_inChainOfNodes_recursive ();
 
         System.out.println( "number of elements: " + list.size() );
         

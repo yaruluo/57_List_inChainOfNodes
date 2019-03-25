@@ -1,7 +1,8 @@
 /**
  Test list features.
-
-renamed to UserOf
+renamed UserOfListt because i kept gettign 
+error: class found on application class path: UserOfList
+and got really annoyed. will fix later.
  */
 public class UserOfListt {
     public static void main( String[] args ) {

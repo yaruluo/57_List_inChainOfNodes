@@ -2,13 +2,17 @@
   Represent a list, implemented in a chain of nodes
  */
 
-public class List_inChainOfNodes{
+public class List_inChainOfNodes_recursive{
     private Node headReference;
 
     /**
       Construct an empty list
      */
-    public List_inChainOfNodes(){
+    public List_inChainOfNodes_recursive(){
+    }
+
+    public List_inChainOfNodes_recursive( Node headReference) {
+	this.headReference = headReference;
     }
      
 
@@ -16,13 +20,13 @@ public class List_inChainOfNodes{
       @return the number of elements in this list
      */
     public int size() {
-	int output = 0;
-	Node refToNode = headReference;
-	while( refToNode != null){
-	    output += 1;
-	    refToNode = refToNode.getReferenceToNextNode();
-	}
-	return output;
+	if( headReference == null) // base case
+	    return 0;
+	return 1
+	    +
+	    new List_inChainOfNodes_recursive(
+		      headReference.getReferenceToNextNode()
+					     )   .size();
     }
 
     
@@ -33,11 +37,12 @@ public class List_inChainOfNodes{
       */
     public String toString() {
 	String output = "[";
-	Node refToNode = headReference;
-	for( int index = 0; index < size(); index++){
-	    output += refToNode.getCargoReference() + ",";
-	    refToNode = refToNode.getReferenceToNextNode();
-	}
+
+	if( size() == 0)
+	    return "";
+	output += headReference.getCargoReference() + ","
+	    + new List_inChainOfNodes_recursive(headReference.getReferenceToNextNode()).toString();
+	
 	output += "]";
 	return output;
     }

@@ -2,13 +2,13 @@
   Represent a list, implemented in a chain of nodes
  */
 
-public class List_inChainOfNodes{
+public class List_inChainOfNodes_whileStyle{
     private Node headReference;
 
     /**
       Construct an empty list
      */
-    public List_inChainOfNodes(){
+    public List_inChainOfNodes_whileStyle(){
     }
      
 
