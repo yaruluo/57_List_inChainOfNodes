@@ -35,18 +35,23 @@ public class List_inChainOfNodes_recursive{
        format:
            # elements [element0,element1,element2,] 
       */
-    public String toString() {
-	String output = "[";
+    public String toString(){
+	String output = new String();
 
-	if( size() == 0)
+	output = toStringHelper();
+	
+	return "[" + output + "]";
+    }
+
+    public String toStringHelper(){
+	String output = new String();
+    	if( size() == 0)
 	    return "";
 	output += headReference.getCargoReference() + ","
-	    + new List_inChainOfNodes_recursive(headReference.getReferenceToNextNode()).toString();
-	
-	output += "]";
+	    + new List_inChainOfNodes_recursive(headReference.getReferenceToNextNode()).toStringHelper();
+
 	return output;
     }
-    
     
     /**
       Append @value to the head of this list.

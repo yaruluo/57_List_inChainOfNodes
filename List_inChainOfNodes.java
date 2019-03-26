@@ -53,4 +53,43 @@ public class List_inChainOfNodes{
 	 headReference = new Node( val, lastReference);
         return true;
      }
+
+    public Object get( int index){
+	Node currentNode = headReference;
+	for( int el = 0; el < index; el ++){
+	    currentNode = currentNode.getReferenceToNextNode();
+	}
+	return currentNode.getCargoReference();
+    }
+
+    public void set( int index, Object value){
+	Node currentNode = headReference;
+        for( int el = 0; el < index; el ++){
+	    currentNode = currentNode.getReferenceToNextNode();
+	}
+	currentNode.setCargoReference(val);
+    }
+
+    public boolean add( int index, Object val){
+	Node currentNode = headReference;
+	for( int el = 0; el < index-1; index++)
+	    currentNode = currentNode.getReferenceToNextNode();
+	Node newNode = new Node( val, currentNode.getReferenceToNextNode());
+        currentNode.setReferenceToNextNode( newNode);
+        return true;
+    }
+
+    public boolean remove( int index){
+	Node currentNode = headReference;
+        for( int el = 0; el < index - 1; el++) {
+            currentNode = currentNode.getReferenceToNextNode();
+        }
+        currentNode.setReferenceToNextNode( currentNode.getReferenceToNextNode());
+        return true;
+    }
+	
+
+
+
+    
 }
